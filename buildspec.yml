@@ -6,9 +6,11 @@ phases:
 #      nodejs: 10
    commands:
       - echo Installing Nodejs 0.10.48 ...
-      - curl -sL https://deb.nodesource.com/setup_0.10 | bash -
-      - apt-cache policy nodejs
-      - sudo apt-get install -y nodejs=0.10.48-*
+      - curl -fsSL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+      - sudo apt-get install -y nodejs
+ #     - curl -sL https://deb.nodesource.com/setup_0.10 | bash -
+ #     - apt-cache policy nodejs
+ #     - sudo apt-get install -y nodejs=0.10.48-*
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
