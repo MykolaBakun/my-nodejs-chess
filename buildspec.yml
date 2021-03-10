@@ -23,4 +23,4 @@ artifacts:
   files:
     - "**/*"
   giscard-paths: no
-  base-directory: dist
+#  base-directory: dist
