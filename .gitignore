@@ -1,5 +1,6 @@
 node_modules
 npm-debug.log
 lib/client
+package-lock.json
 mongod
 data

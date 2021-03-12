@@ -17,10 +17,10 @@ phases:
       - npm install
   build:
     commands:
-      - echo Build...
-      - npm run-script build
+      - echo Build Front...
+      - npm run build
 artifacts:
   files:
-    - "**/*"
+    - "lib/client/*"
   giscard-paths: no
-#  base-directory: dist
+  base-directory: client
