@@ -5,12 +5,7 @@ phases:
     runtime-versions:
       nodejs: 10
 #   commands:
-#      - echo Installing Nodejs 0.10.48 ...
-#      - curl -fsSL https://deb.nodesource.com/setup_10.x | bash -
- #     - apt-get install -y nodejs
- #     - curl -sL https://deb.nodesource.com/setup_0.10 | bash -
- #     - apt-cache policy nodejs
- #     - sudo apt-get install -y nodejs=0.10.48-*
+#      - echo start
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
@@ -22,5 +17,5 @@ phases:
 artifacts:
   files:
     - "lib/client/*"
-  giscard-paths: no
-  base-directory: client
+  giscard-paths: yes
+#  base-directory: client
