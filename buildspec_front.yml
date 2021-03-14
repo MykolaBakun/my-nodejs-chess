@@ -15,9 +15,9 @@ phases:
       - echo Build Front...
 #      - npm run build
       - npx gulp build
-      - ll -a
+      - ls
 artifacts:
   files:
-    - "lib/**/*"
+    - "lib/client/**/*"
   giscard-paths: yes
-  base-directory: client
+#  base-directory: client
