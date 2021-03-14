@@ -18,6 +18,6 @@ phases:
       - ls
 artifacts:
   files:
-    - "lib/client/**/*"
+    - "**/*"
 #  giscard-paths: yes
-#  base-directory: client
+  base-directory: "lib/client"
