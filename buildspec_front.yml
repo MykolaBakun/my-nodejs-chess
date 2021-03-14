@@ -4,8 +4,6 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
-#   commands:
-#      - echo start
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
@@ -15,9 +13,7 @@ phases:
       - echo Build Front...
 #      - npm run build
       - npx gulp build
-      - ls
 artifacts:
   files:
     - "**/*"
-#  giscard-paths: yes
   base-directory: "lib/client"
