@@ -13,7 +13,8 @@ phases:
   build:
     commands:
       - echo Build Front...
-      - npm run build
+#      - npm run build
+      - npx gulp build
 artifacts:
   files:
     - "lib/client/*"
