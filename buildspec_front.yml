@@ -19,4 +19,4 @@ artifacts:
   files:
     - "lib/client/**/*"
   giscard-paths: yes
-  base-directory: client
+#  base-directory: client
