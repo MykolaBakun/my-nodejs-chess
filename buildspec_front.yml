@@ -19,5 +19,5 @@ phases:
 artifacts:
   files:
     - "lib/client/**/*"
-  giscard-paths: yes
+#  giscard-paths: yes
 #  base-directory: client
