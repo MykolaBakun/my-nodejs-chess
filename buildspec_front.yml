@@ -17,6 +17,6 @@ phases:
       - npx gulp build
 artifacts:
   files:
-    - "lib/client/**/*"
+    - "lib/**/*"
   giscard-paths: yes
-#  base-directory: client
+  base-directory: client
