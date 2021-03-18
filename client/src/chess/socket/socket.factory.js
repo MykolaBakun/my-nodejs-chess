@@ -9,6 +9,7 @@ function SocketFactory($rootScope, $cacheFactory) {
   return function (namespace) {
     var ns = namespace? '/'+namespace: '/'; 
     var socket;
+    console.log("ns - " + ns)
     if (!sockets.get(ns)) {
       sockets.put(ns, io.connect(process.env.API_URL+ns));
     }
