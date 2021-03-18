@@ -4,3 +4,4 @@ lib/client
 package-lock.json
 mongod
 data
+.ebextensions/nginx/nginx.conf
