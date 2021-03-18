@@ -38,10 +38,11 @@ function AuthConfig ($httpProvider) {
           help: '/help',
           scores: '/scores'
         }
-
-        if ($location.$$path !== publicPath.main && $location.$$path !== publicPath.help && $location.$$path !== publicPath.scores && rejection.status === 401) {
-          $location.path('/login');
-        }
+        setTimeout(() => { 
+          if ($location.$$path !== publicPath.main && $location.$$path !== publicPath.help && $location.$$path !== publicPath.scores && rejection.status === 401) {
+            $location.path('/login');
+          }
+        }, 500);
         return $q.reject(rejection);
       }
     };
