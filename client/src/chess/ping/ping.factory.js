@@ -9,21 +9,21 @@ function PingFactory($http) {
   };
 
   function get() {
-    return $https.get(process.env.API_URL + '/ping').
+    return $http.get(process.env.API_URL + '/ping').
       then(function (response) {
         return response.data;
       });
   }
 
   function post() {
-    return $https.post(process.env.API_URL + '/ping').
+    return $http.post(process.env.API_URL + '/ping').
       then(function (response) {
         return response.data;
       });
   }
 
   function setCookie(name, value) {
-    return $https.post(process.env.API_URL + '/ping/cookie', { name: name, value: value }, { withCredentials: true }).
+    return $http.post(process.env.API_URL + '/ping/cookie', { name: name, value: value }, { withCredentials: true }).
       then(function (response) {
         return response.data;
       });
