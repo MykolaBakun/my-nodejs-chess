@@ -25,8 +25,8 @@ function RouteConfig($routeProvider) {
   });
 };
 
-AuthConfig.$inject = ['$httpProvider'];
-function AuthConfig ($httpProvider) {
+AuthConfig.$inject = ['$httpsProvider'];
+function AuthConfig ($httpsProvider) {
   AuthInterceptor.$inject = ['$injector'];
   function AuthInterceptor($injector) {
     return {
@@ -46,7 +46,7 @@ function AuthConfig ($httpProvider) {
       }
     };
   }
-  $httpProvider.interceptors.push(AuthInterceptor);
+  $httpsProvider.interceptors.push(AuthInterceptor);
 }
 
 
