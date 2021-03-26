@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  chess-back:
+    image: chess-back:v1
+    ports:
+      - "8081:8081"
+    links:
+      - mongodb
+    networks:
+      - my-network
+  chess-front:
+    image: chess-front:v1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - chess-back
+    networks:
+      - my-network
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
