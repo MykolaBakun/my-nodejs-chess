@@ -1,5 +1,5 @@
   
-FROM node:10-apline
+FROM node:10-alpine
 
 RUN mkdir /my-nodejs-chess
 COPY . /my-nodejs-chess
