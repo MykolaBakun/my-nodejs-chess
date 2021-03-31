@@ -2,7 +2,7 @@ version: '3'
 
 services:
   chess-back:
-    image: chess-back:v1
+    image: mykolacompany/chess-back:v1
     ports:
       - "8081:8081"
     links:
@@ -10,7 +10,7 @@ services:
     networks:
       - my-network
   chess-front:
-    image: chess-front:v1
+    image: mykolacompany/chess-front:v1
     ports:
       - "8080:8080"
     depends_on:
