@@ -1,0 +1,12 @@
+FROM node:10-alpine
+
+ARG API_URL
+ENV API_URL "API_URL"
+
+RUN mkdir /nodejs-app
+COPY . /nodejs-app
+WORKDIR /nodejs-app
+
+RUN npm install
+RUN npm run build
+RUN npm run client
