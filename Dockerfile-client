@@ -29,6 +29,8 @@ COPY --from=builder /nodejs-app/lib/client /usr/share/nginx/html
 
 COPY --from=builder /nodejs-app/scripts/replace_api_url.sh /
 
+CMD export API_URL=$API_URL
+
 CMD ["sh", "replace_api_url.sh"]
 
 #CMD ["nginx", "-g", "daemon off;"]
