@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-find '/usr/share/nginx/html' -name '*.js' -exec sed -i -e 's,API_URL,'"$API_URL"',g' {} \;
+echo $API_URL > my_url.js
 nginx -g "daemon off;"
