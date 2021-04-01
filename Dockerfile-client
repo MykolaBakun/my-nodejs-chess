@@ -6,15 +6,11 @@
 # We label our stage as 'builder'
 FROM node:10-alpine as builder
 
-ARG API_URL
-ENV API_URL "$API_URL"
-
 RUN mkdir /nodejs-app
 COPY . /nodejs-app
 WORKDIR /nodejs-app
 
-RUN npm install 
-#--ignore-scripts --no-optional
+RUN npm install --ignore-scripts --no-optional
 RUN npm run build
 
 
@@ -28,6 +24,8 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /nodejs-app/lib/client /usr/share/nginx/html
 
 COPY --from=builder /nodejs-app/scripts/replace_api_url.sh /
+
+ENV API_URL="http://test"
 
 CMD export API_URL=$API_URL
 
