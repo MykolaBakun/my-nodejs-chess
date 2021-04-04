@@ -2,7 +2,7 @@ version: '3'
 
 services:
   chess-back:
-    image: mykolacompany/chess-back:v1
+    image: mykolacompany/chess-back
     ports:
       - "8081:8081"
     links:
@@ -10,9 +10,9 @@ services:
     networks:
       - my-network
   chess-front:
-    image: mykolacompany/chess-front:v1
+    image: mykolacompany/chess-front
     environment:
-      API_URL: "http://locol/"
+      API_URL: "http://locolhost:8080"
     ports:
       - "8080:8080"
     depends_on:

@@ -25,7 +25,7 @@ COPY --from=builder /nodejs-app/lib/client /usr/share/nginx/html
 
 COPY --from=builder /nodejs-app/scripts/replace_api_url.sh /
 
-ENV API_URL="http://test"
+ENV API_URL="http://locolhost:8080"
 
 CMD export API_URL=$API_URL
 
