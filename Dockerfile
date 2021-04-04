@@ -4,7 +4,7 @@ RUN mkdir /nodejs-app
 COPY . /nodejs-app
 WORKDIR /nodejs-app
 
-ENV DB_URL="http://locolhost:8080"
+ENV DB_URL="mongodb://mykola:mykpas@localhost:27017/chessMEAN?authSource=admin"
 
 CMD export DB_URL=$DB_URL
 
