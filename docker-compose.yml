@@ -16,7 +16,7 @@ services:
   chess-front:
     image: mykolacompany/chess-front
     environment:
-      API_URL: "http://locolhost:8081"
+      API_URL: "http://localhost:8081"
     ports:
       - "8080:80"
     depends_on:
