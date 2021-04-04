@@ -25,7 +25,7 @@ spec:
         io.kompose.service: chess-back
     spec:
       containers:
-        - image: mykolacompany/chess-back:v1
+        - image: mykolacompany/chess-back
           name: chess-back
           ports:
             - containerPort: 8081

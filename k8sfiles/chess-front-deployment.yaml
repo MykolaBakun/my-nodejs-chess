@@ -27,8 +27,8 @@ spec:
       containers:
         - env:
             - name: API_URL
-              value: http://locol/
-          image: mykolacompany/chess-front:v1
+              value: http://34.107.190.122
+          image: mykolacompany/chess-front
           name: chess-front
           ports:
             - containerPort: 8080
