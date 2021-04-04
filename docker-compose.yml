@@ -18,6 +18,8 @@ services:
       DB_URL: "mongodb://mykola:mykpas@mongodb:27017/chessMEAN?authSource=admin"
     ports:
       - "8081:8081"
+    depends_on:
+      - mongodb
     links:
       - mongodb
     networks:
