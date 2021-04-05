@@ -1,30 +1,47 @@
 version: '3'
 
 services:
+
+#   DATABASE
+  mongodb:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mykola
+      MONGO_INITDB_ROOT_PASSWORD: mykpas
+    ports:
+      - "27017:27017"
+    restart: always
+    networks:
+      - my-network
+
+#   BACKEND
   chess-back:
     image: mykolacompany/chess-back
+    environment:
+      DB_URL: "mongodb://mykola:mykpas@mongodb:27017/chessMEAN?authSource=admin"
     ports:
       - "8081:8081"
+    depends_on:
+      - mongodb
+    restart: always
     links:
       - mongodb
     networks:
       - my-network
+
+#   FRONTEND
   chess-front:
     image: mykolacompany/chess-front
     environment:
-      API_URL: "http://locolhost:8080"
+      API_URL: "http://localhost:8081"
     ports:
-      - "8080:8080"
+      - "8080:80"
     depends_on:
       - chess-back
+    restart: always
     networks:
       - my-network
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
-    networks:
-      - my-network
+
 networks:
   my-network:
     driver: bridge

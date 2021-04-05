@@ -27,11 +27,11 @@ spec:
       containers:
         - env:
             - name: API_URL
-              value: http://34.107.190.122
+              value: http://localhost:8081
           image: mykolacompany/chess-front
           name: chess-front
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           resources: {}
       restartPolicy: Always
 status: {}

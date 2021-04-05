@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
 #   DATABASE
   mongodb:
     image: mongo
@@ -9,8 +10,10 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: mykpas
     ports:
       - "27017:27017"
+    restart: always
     networks:
       - my-network
+
 #   BACKEND
   chess-back:
     image: mykolacompany/chess-back
@@ -20,10 +23,12 @@ services:
       - "8081:8081"
     depends_on:
       - mongodb
+    restart: always
     links:
       - mongodb
     networks:
       - my-network
+
 #   FRONTEND
   chess-front:
     image: mykolacompany/chess-front
@@ -33,6 +38,7 @@ services:
       - "8080:80"
     depends_on:
       - chess-back
+    restart: always
     networks:
       - my-network
 
