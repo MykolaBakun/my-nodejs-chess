@@ -1,1 +1,18 @@
 #gcp
+steps:
+# gcr.io/cloud-builders/
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+  args: ['build', '-t', 'gcr.io/nodejs_chess/back', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push
+  args: ['push', 'gcr.io/nodejs_chess/back']
+# Deploy container image to Cloud Run
+# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#   id: Deploy to Cloud Run
+#   entrypoint: gcloud
+#   args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/nodejs_chess/back', '--region', 'us-central1', '--platform', 'managed']
+images:
+- gcr.io/nodejs_chess/back
