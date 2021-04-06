@@ -3,20 +3,20 @@ steps:
 # gcr.io/cloud-builders/
 # Build Front the container image
 - name: 'gcr.io/cloud-builders/docker'
-  id: Build
+  id: Build-Front
   args: ['build', '-f', 'Dockerfile-client', '-t', 'gcr.io/hybrid-lore-308816/nodejs_chess_front', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  id: Push
+  id: Push-Front
   args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_front']
 
 # Build Back the container image
 - name: 'gcr.io/cloud-builders/docker'
-  id: Build
+  id: Build-Back
   args: ['build', '-t', 'gcr.io/hybrid-lore-308816/nodejs_chess_back', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  id: Push
+  id: Push-Back
   args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_back']
 
 # Deploy container image to Cloud Run
