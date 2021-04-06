@@ -1,6 +1,5 @@
-#gcp
+# gcp
 steps:
-# gcr.io/cloud-builders/
 # Build Front the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: Build-Front

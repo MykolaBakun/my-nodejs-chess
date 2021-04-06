@@ -1,3 +1,4 @@
+# aws
 version: 0.2
 
 phases:
@@ -11,7 +12,6 @@ phases:
   build:
     commands:
       - echo Build Front...
-#      - npm run build
       - npx gulp build
 artifacts:
   files:

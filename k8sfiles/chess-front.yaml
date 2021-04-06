@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chess-front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chess-front
+  template:
+    metadata:
+      labels:
+        app: chess-front
+    spec:
+      containers:
+        - name: chess-front
+          image: mykolacompany/chess-front
+          ports:
+            - containerPort: 80
+          env:
+            - name: API_URL
+              value: chess-back-servise-local
+          imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chess-front-servise
+spec:
+  selector:
+    app: chess-front
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
