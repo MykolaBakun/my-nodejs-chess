@@ -1,7 +1,16 @@
 #gcp
 steps:
 # gcr.io/cloud-builders/
-# Build the container image
+# Build Front the container image
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+  args: ['build', '-f', 'Dockerfile-client', '-t', 'gcr.io/hybrid-lore-308816/nodejs_chess_front', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push
+  args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_front']
+
+# Build Back the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: Build
   args: ['build', '-t', 'gcr.io/hybrid-lore-308816/nodejs_chess_back', '.']
@@ -9,10 +18,11 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: Push
   args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_back']
+
 # Deploy container image to Cloud Run
 # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
 #   id: Deploy to Cloud Run
 #   entrypoint: gcloud
 #   args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/nodejs_chess/back', '--region', 'us-central1', '--platform', 'managed']
-images:
-- gcr.io/hybrid-lore-308816/nodejs_chess_back
+# images:
+# - gcr.io/hybrid-lore-308816/nodejs_chess_back
