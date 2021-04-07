@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: chess-front
-          image: mykolacompany/chess-front
+          image: gcr.io/hybrid-lore-308816/nodejs_chess_front
           ports:
             - containerPort: 80
           env:
