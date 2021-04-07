@@ -2,16 +2,16 @@
 steps:
 # Build Front the container image
 - name: 'gcr.io/cloud-builders/docker'
-  id: Build-Front
+  id: 'Build Front image'
   args: ['build', '-f', 'Dockerfile-client', '-t', 'gcr.io/hybrid-lore-308816/nodejs_chess_front', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  id: Push-Front
+  id: 'Push Front image'
   args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_front']
 
 # Update k8s pods Front 
 - name: 'gcr.io/cloud-builders/gke-deploy'
-  id: 'Apply deploy'
+  id: 'Apply Front deploy'
   args:
   - 'apply'
   - '--filename=./k8sfiles/chess-front.yaml'
@@ -21,16 +21,16 @@ steps:
 
 # Build Back the container image
 - name: 'gcr.io/cloud-builders/docker'
-  id: Build-Back
+  id: 'Build Back image'
   args: ['build', '-t', 'gcr.io/hybrid-lore-308816/nodejs_chess_back', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  id: Push-Back
+  id: 'Push Back image'
   args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_back']
 
 # Update k8s pods Back
 - name: 'gcr.io/cloud-builders/gke-deploy'
-  id: 'Apply deploy'
+  id: 'Apply Back deploy'
   args:
   - 'apply'
   - '--filename=./k8sfiles/chess-back.yaml'
