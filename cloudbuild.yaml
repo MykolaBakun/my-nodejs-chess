@@ -9,6 +9,16 @@ steps:
   id: Push-Front
   args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_front']
 
+# Update k8s pods Front 
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  id: 'Apply deploy'
+  args:
+  - 'apply'
+  - '--filename=./k8sfiles/chess-front.yaml'
+  - '--namespace=default'
+  - '--cluster=cluster-1'
+  - '--location=us-central1-c'
+
 # Build Back the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: Build-Back
@@ -18,10 +28,12 @@ steps:
   id: Push-Back
   args: ['push', 'gcr.io/hybrid-lore-308816/nodejs_chess_back']
 
-# Deploy container image to Cloud Run
-# - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-#   id: Deploy to Cloud Run
-#   entrypoint: gcloud
-#   args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/nodejs_chess/back', '--region', 'us-central1', '--platform', 'managed']
-# images:
-# - gcr.io/hybrid-lore-308816/nodejs_chess_back
+# Update k8s pods Back
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  id: 'Apply deploy'
+  args:
+  - 'apply'
+  - '--filename=./k8sfiles/chess-back.yaml'
+  - '--namespace=default'
+  - '--cluster=cluster-1'
+  - '--location=us-central1-c'
