@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: chess-back
+  name: chess-back-servise
 spec:
   selector:
     app: chess-back
