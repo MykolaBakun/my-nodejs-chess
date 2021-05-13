@@ -48,7 +48,7 @@ var html = {
 
 var env = Object.assign({
   NODE_ENV: 'development',
-  API_URL: 'my_test_url_pivo'
+  API_URL: 'http://nodejschess-env.eba-ruke9urt.us-east-1.elasticbeanstalk.com'
 }, process.env);
 
 module.exports = {
